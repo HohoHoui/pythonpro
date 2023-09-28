@@ -4,29 +4,43 @@ heroHP = random.randint(50, 100)
 monsterHP = random.randint(50, 100)
 count = 0
 
-print('hero HP: ', heroHP, ', moster HP: ', monsterHP)
+print('hero HP:', heroHP, ', moster HP:', monsterHP)
 
-while heroHP != 0 or monsterHP != 0:
+while heroHP > 0 and monsterHP > 0:
     heroATK = random.randint(-10, 20)
     monsterATK = random.randint(-10, 20)
     
-    if -10 <= heroATK and heroATK <= 0:
-        print('hero(HP:', heroHP - monsterATK, ', attak:', heroATK, ') fail <-> ', end=' ')
-    elif 0 <= heroATK:
-        print('hero(HP:', heroHP - monsterATK, ', attak:', heroATK, ') success <-> ', end=' ')
-    
-    if -10 <= monsterATK and monsterATK <= 0:
-        print('moster(HP:', monsterHP - heroATK, ', attak:', monsterATK, ') fail')
-    elif 0 <= monsterATK:
-        print('moster(HP:', monsterHP - heroATK, ', attak:', monsterATK, ') success')
+   
+    if (-10 <= heroATK and heroATK <= 0) and (-10 <= monsterATK and monsterATK <= 0):
+        print('hero(HP:',heroHP, ', attck:',heroATK, ') fail <->', end=' ')
+        print('monster(HP:',monsterHP,', attck:',monsterATK, ') fail')
+    elif (0 < heroATK) and (-10 <= monsterATK and monsterATK <= 0):
+        monsterHP -= heroATK
+        print('hero(HP:',heroHP, ', attck:',heroATK, ') success <->', end=' ')
+        if(monsterHP <= 0):
+            print('moster(HP:',monsterHP, ', attck:',monsterATK, ') fail', end=' ')
+        else: 
+            print('monster(HP:',monsterHP, ', attck:',monsterATK, ') fail')
+    elif (-10 <= heroATK and heroATK <= 0) and (0 < monsterATK):
+        heroHP -= monsterATK
+        print('hero(HP:',heroHP, ', attck:',heroATK, ') fail <->', end=' ')
+        print('monster(HP:',monsterHP, ', attck:',monsterATK, ') success')
+    elif (0 < heroATK) and (0 < monsterATK):
+        heroHP -= monsterATK
+        monsterHP -= heroATK
+        print('hero(HP:',heroHP, ', attck:',heroATK, ') success <->', end=' ')
+        if(monsterHP <= 0):
+            print('moster(HP:',monsterHP, ', attck:',monsterATK, ') success', end=' ')
+        else:
+            print('moster(HP:',monsterHP, ', attck:',monsterATK, ') success')
     
     count += 1
 
 print('\n-----------------------------------------------')
-print('Total phase: ', count, ',')
+print('Total phase:', count, ',')
 
-if heroHP == 0:
+if heroHP > 0:
     print('Hero Win!!!!')
-elif monsterHP == 0:
+elif monsterHP > 0:
     print('monster Win!!!!')
 
