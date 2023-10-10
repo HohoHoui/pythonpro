@@ -6,7 +6,7 @@ print("In the game, the program selects a word at random, and the player's objec
 words = ('difficult', 'banana', 'apple', 'python', 'daegue', 'catholic', 'university')
 randWords = random.choice(words)
 print('Length of the selected word:', len(randWords))
-p#rint(randWords)
+#print(randWords))
 
 i = len(randWords)
 #print('i : ', i)
