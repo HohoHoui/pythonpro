@@ -17,17 +17,12 @@ while i > 0:
     print('Current guessed word:',guessedWords)
 
     answer = input('Guess a letter: ')
-<<<<<<< HEAD
     
-=======
-
->>>>>>> f7523569996f7ebc2376d6a8505c0b150bd591f3
     if answer in randWords:
         for i in range(len(randWords)):
             if randWords[i] == answer:
                 guessedWords[i] = answer
        # print(''.join(guessedWords))
-<<<<<<< HEAD
     else:
         i -= 1
         print('Incorrect guess.')
@@ -36,14 +31,5 @@ while i > 0:
         print('Congratulations! You guessed the word:', randWords)
         break
  
-=======
-else:
-        i -= 1
-        print('Incorrect guess.')
-
-    if '_' not in guessedWords:
-        print('Congratulations! You guessed the word:', randWords)
-        break
-
 if '_' in guessedWords:
     print("You've uesd up all your attemps. The correcr word was", randWords)
