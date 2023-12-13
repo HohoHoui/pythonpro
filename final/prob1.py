@@ -19,7 +19,11 @@ def frequency_analytic(a):
     for j in dic:
     	if dic[j] == 0:
     		continue
-    	else: print(j, dic[j])
-
+    	else: 
+    		print(j, dic[j])
+    		dic[j] -= 1
+#print("first")
 frequency_analytic("PangolinPartyPRO");
 
+#print("second")
+#frequency_analytic("PangolinPartyPRO");
